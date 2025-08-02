@@ -1,0 +1,119 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title To-Do List
+    link(href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="/todolist.css")
+
+  body
+    button#home-button(onclick="window.location.href='/homepage'")
+      img.homelogo-image(src="homebutton.png")
+
+    .container
+      h1 My To-Do List
+
+      .progress-container
+        div
+          | Tasks Completed: 
+          span#completed 0
+          |  / 
+          span#total 0
+        div#numbers 0%
+
+      #progress(style="height: 10px; background: lime; margin-bottom: 10px; width: 0; transition: width 0.3s ease")
+
+      .input-container
+        input#input-box(type="text", placeholder="Add a new task")
+        button#submit(type="button") +
+
+      ul#task-list
+        // Tasks will be dynamically added here
+
+    script.
+      const inputBox = document.getElementById("input-box");
+      const submitButton = document.getElementById("submit");
+      const listContainer = document.getElementById("task-list");
+      const progress = document.getElementById("progress");
+      const numbers = document.getElementById("numbers");
+      const completedTasks = document.getElementById("completed");
+      const totalTasks = document.getElementById("total");
+
+      let tasks = [];
+
+      function loadTasks() {
+        const storedTasks = localStorage.getItem("tasks");
+        if (storedTasks) {
+          tasks = JSON.parse(storedTasks);
+          tasks.forEach(task => {
+            addTaskToList(task.text, task.completed);
+          });
+          updateProgress();
+        }
+      }
+
+      function saveTasks() {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        updateProgress();
+      }
+
+      function addTaskToList(text, completed = false) {
+        const li = document.createElement("li");
+        li.className = "task-item";
+        const uniqueId = Date.now() + Math.random().toString(36).substr(2, 5); // unique ID for each task
+
+        li.innerHTML = `
+          <input type="checkbox" id="\${uniqueId}" \${completed ? "checked" : ""}>
+          <label for="\${uniqueId}">\${text}</label>
+          <button class="delete-btn">🗑</button>
+        `;
+
+        listContainer.appendChild(li);
+
+        const checkbox = li.querySelector("input[type='checkbox']");
+        const deleteButton = li.querySelector(".delete-btn");
+
+        checkbox.addEventListener("change", () => {
+          const task = tasks.find(task => task.text === text);
+          if (task) {
+            task.completed = checkbox.checked;
+            saveTasks();
+            updateProgress();
+          }
+        });
+
+        deleteButton.addEventListener("click", () => {
+          tasks = tasks.filter(task => task.text !== text);
+          li.remove();
+          saveTasks();
+          updateProgress();
+        });
+
+        li.classList.toggle("completed", completed);
+      }
+
+      function updateProgress() {
+        const completedCount = tasks.filter(task => task.completed).length;
+        const totalCount = tasks.length;
+        completedTasks.textContent = completedCount;
+        totalTasks.textContent = totalCount;
+
+        const percentage = totalCount === 0 ? 0 : (completedCount / totalCount) * 100;
+        progress.style.width = percentage + "%";
+        numbers.textContent = Math.round(percentage) + "%";
+      }
+
+      submitButton.addEventListener("click", () => {
+        const taskText = inputBox.value.trim();
+        if (taskText === '') {
+          alert("You must write something!");
+        } else {
+          addTaskToList(taskText);
+          tasks.push({ text: taskText, completed: false });
+          saveTasks();
+          inputBox.value = '';
+        }
+      });
+
+      loadTasks();

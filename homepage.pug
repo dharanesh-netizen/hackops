@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title AI Career Mentor
+    link(rel="stylesheet", href="/homepage.css")
+  body
+    script(src="mainpage.js")
+
+    // Header area
+    #team-logo
+      img.teamlogo-image(src="hackopsimage.jpg")
+
+    // Hamburger menu button
+    button#menu-button(onclick="toggleMenu()")
+      img.menulogo-image(src="menubutton.png")
+
+    
+    // App title
+    .mentor-header AI Career Mentor
+
+    // Voice input fields
+    .mentor-container
+      .mentor-field
+        label.mentor-label(for="mentorSkills") Your Top Skills
+        input.mentor-input#mentorSkills(placeholder="e.g. Python, Communication, Design")
+        button.mic-btn(onclick="startVoiceInput('mentorSkills')")
+
+      .mentor-field
+        label.mentor-label(for="mentorInterests") Your Interests
+        input.mentor-input#mentorInterests(placeholder="e.g. AI, Marketing, Web Development")
+        button.mic-btn(onclick="startVoiceInput('mentorInterests')")
+
+      .mentor-field
+        label.mentor-label(for="mentorGoals") Your Career Goals
+        input.mentor-input#mentorGoals(placeholder="e.g. Become a Data Scientist, Start a business")
+        button.mic-btn(onclick="startVoiceInput('mentorGoals')")
+
+      button.mentor-btn(onclick="getMentorAdvice()") Get My Career Roadmap
+
+      #mentorResult.mentor-result
+        | Your personalized career roadmap will appear here.
+
+    // ⏬ Hidden side menu that appears on menu-button click
+    #side-menu.hidden
+      form(action="/todolist", method="get")
+        input.mentor-btn(type="submit", value="To-Do List")
+      form(action="/studytime", method="get")
+        input.mentor-btn(type="submit", value="Study Time")
+      form(action="/notes", method="get")
+        input.mentor-btn(type="submit", value="Notes")
+
+    // Inline JS to toggle the side menu
+    script.
+      function toggleMenu() {
+        const menu = document.getElementById("side-menu");
+        menu.classList.toggle("hidden");
+      }

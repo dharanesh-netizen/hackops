@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color:black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#home-button:hover {
+    box-shadow: 0 0 10px #00ffe7, 0 0 10px #00ffe7;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.homelogo-image {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(91%) sepia(20%) saturate(2000%) hue-rotate(150deg);
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Container Card */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(0, 255, 255, 0.08);
+}
+
+/* Title Glow Text */
+.container h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color: #00fff7;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Labels and Inputs */
+label {
+    display: block;
+    margin-top: 24px;
+    font-size: 1em;
+    font-weight: 600;
+    color: #b5faff;
+
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #00fff744;
+    background: #1a1a1a;
+    color: #e6ffff;
+    font-size: 0.95em;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #00fff7;
+    box-shadow: 0 0 10px #00fff7aa;
+}
+
+input::placeholder {
+    color: #55e7ff88;
+    text-align: center;
+}
+
+/* Button with Neon Gradient */
+#logButton ,.edit,
+.delete {
+    margin-top: 30px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #00fff7, #007bff);
+    color: #000;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Table */
+table {
+    width: 100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    background: rgba(0, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.95em;
+    color: #e0f7ff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
+}
+
+table th,
+table td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #00fff71f;
+}
+
+table th {
+    background: rgba(0, 255, 255, 0.1);
+    color: #00fff7;
+    text-shadow: 0 0 10px #00fff7aa;
+}
+
+table td button {
+    margin: 0 6px;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border-radius: 6px;
+    border: 1px solid #00fff7;
+    background: transparent;
+    color: #00fff7;
+    transition: 0.3s;
+}
+
+table td button:hover {
+    background: #00fff7;
+    color: #000;
+}
+
+/* Chart */
+#studyChart {
+    display: block;
+    margin: 40px auto 0;
+    max-width: 100%;
+}
+
+.edit,
+.delete {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: none;
+    position: relative;
+    
+
+}

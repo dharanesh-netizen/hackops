@@ -1,0 +1,214 @@
+body {
+    background-color: black;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#team-logo,
+.teamlogo-image {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+}
+
+#menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    top: 20px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: #000;
+    border-radius: 50%;
+    color: #00ffe7;
+    position: absolute;
+}
+
+#menu-button:hover {
+    box-shadow: 0 0 10px #00ffe7, 0 0 10px #00ffe7;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.menulogo-image {
+    width: 30px;
+    height: 25px;
+    filter: brightness(0) saturate(100%) invert(91%) sepia(20%) saturate(2000%) hue-rotate(150deg);
+}
+
+
+
+.mentor-container {
+    background: #1a1a1a;
+    margin-top: 10%;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+.mentor-header {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    position: fixed;
+    left: 30vw;
+    top: 25px;
+    width: 600px;
+    background-color: #00f2ff;
+    border: 1px solid #79f9ea;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: -8px;
+}
+
+.mentor-label {
+    margin-top: 20px;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    color: #79f9ea;
+    margin: 10px;
+}
+
+.mentor-input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #222;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.mentor-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #00ffe7, #007dff);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.mentor-btn:hover,
+#menu-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+.mentor-result {
+    margin-top: 25px;
+    background: #1c1c1c;
+    padding: 15px;
+    border-left: 5px solid #00ffe7;
+    border-radius: 10px;
+    color: #e5e5e5;
+}
+
+.mic-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #00ffe7, #007dff);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-image: url("voice-recorder-icon-29.jpg");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    position: relative;
+    bottom: 37px;
+    left: 480px;
+    transition: transform 0.2s ease;
+}
+
+/* New CSS for bottom-right nav forms */
+.nav-forms {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+
+.nav-forms form {
+    width: 100%;
+}
+
+.nav-forms input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #00ffe7, #007dff);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-forms input[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+/* Initially hide the side menu */
+#side-menu.hidden {
+    display: none;
+}
+
+#side-menu {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    background-color: black;
+    padding: 10px;
+    margin: 10px;
+    z-index: 100;
+    border-radius: 10px;
+
+}
+
+
+
+/* Style buttons inside the menu */
+#side-menu form {
+    margin: 5px 0;
+}
+
+#menu-button {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    background-color: #000;
+    border: none;
+    border-radius: 50%;
+    cursor:pointer;
+    z-index: 1000;
+}

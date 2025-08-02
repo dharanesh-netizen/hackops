@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#button:hover {
+    box-shadow: 0 0 10px #00ffe7, 0 0 10px #00ffe7;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.homelogo-image {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(91%) sepia(20%) saturate(2000%) hue-rotate(150deg);
+}
+
+body {
+    font-family: "Orbitron", sans-serif;
+    background: #0d0d0d;
+    color: #00f2ff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #00f2ff50;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #00f2ff;
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    background: #0f0f0f;
+    border: 1px solid #00f2ff;
+    border-radius: 12px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#numbers {
+    border: 2px solid #00f2ff;
+    padding: 10px;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#progress {
+    height: 5px;
+    background: linear-gradient(90deg, #00f2ff, #1e90ff);
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#input-box {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px 0 0 8px;
+    border: 1.5px solid #00f2ff;
+    background: #1a1a1a;
+    color: #00f2ff;
+    font-size: 1rem;
+    outline: none;
+}
+
+#submit {
+    background: linear-gradient(135deg, #00f2ff, #1e90ff);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 8px 8px 0;
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    background: #1a1a1a;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid #00f2ff;
+}
+
+li:hover {
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+li input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    border: 2px solid #00f2ff;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px #00f2ff80;
+}
+
+li input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    border: solid #00f2ff;
+    border-width: 0 2px 2px 0;
+    top: 2px;
+    left: 6px;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.2s ease;
+}
+
+li input[type="checkbox"]:checked {
+    background-color: #00f2ff20;
+}
+
+li input[type="checkbox"]:checked::before {
+    transform: rotate(45deg) scale(1);
+}
+
+li span {
+    flex: 1;
+    color: #00f2ff;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+button {
+    background: transparent;
+    color: #00f2ff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 8px;
+    border: 1.5px solid #00f2ff;
+    padding: 5px;
+    border-radius: 15px;
+    width: 70px;
+}
+
+button:hover {
+    background-color: #00f2ff;
+    color: #0d0d0d;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00f2ff;
+}
+#home-button {
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}

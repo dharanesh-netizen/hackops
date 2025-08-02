@@ -1,0 +1,251 @@
+/* Optimized and Clean Design Notes App */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #0d0d0d;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#home-button:hover {
+    box-shadow: 0 0 10px #00ffe7, 0 0 10px #00ffe7;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.homelogo-image {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(91%) sepia(20%) saturate(2000%) hue-rotate(150deg);
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #0d0d0d;
+    color: #00f2ff;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header */
+.navi {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 2.7em;
+    font-weight: bold;
+    color: #00f2ff;
+    letter-spacing: 2px;
+    cursor: default;
+}
+
+/* Notes container */
+#bars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Note card */
+.bar {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 25px;
+    width: 280px;
+    box-shadow: 0 0 25px #00f2ff30;
+    transition: 0.3s ease;
+    overflow-wrap: break-word;
+}
+
+.bar:hover {
+    box-shadow: 0 0 35px #00f2ff80;
+    transform: translateY(-5px);
+}
+
+/* Note title */
+.title {
+    font-size: 1.4em;
+    color: #00f2ff;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+/* Note content */
+.paragraph {
+    margin-top: 10px;
+    color: #f2f2f2;
+    font-size: 0.95em;
+    white-space: pre-wrap;
+}
+
+/* Delete button */
+.delete {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid #00f2ff;
+    background: transparent;
+    color: #00f2ff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete:hover {
+    background: #00f2ff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+/* Add new note button */
+.new-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: bold;
+    background: #00f2ff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.new-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #00f2ff;
+}
+
+/* Modal background */
+.overlay-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+/* Modal */
+.overlay {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 255, 255, 0.07);
+    border: 1px solid #00f2ff44;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 2;
+    display: none;
+    box-shadow: 0 0 30px #00f2ff55;
+}
+
+/* Modal heading */
+.overlay h2 {
+    text-align: center;
+    font-size: 1.7em;
+    color: #00f2ff;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+input,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 12px 0;
+    border: 1px solid #00f2ff66;
+    background: #0d0d0d;
+    color: #00f2ff;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #00fff7;
+    box-shadow: 0 0 10px #00fff7aa;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #00f2ff88;
+    text-align: center;
+    font-size: 0.9em;
+    color: #55e7ff88;
+    text-align: center;
+}
+
+/* Modal buttons */
+.overlay-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.save-button,
+#cancel-button {
+    width: 42%;
+    height: 45px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+}
+
+.save-button {
+    background: transparent;
+    color: #00f2ff;
+    border: 1px solid #00f2ff;
+}
+
+#cancel-button {
+    background: transparent;
+    color: #00f2ff;
+    border: 1px solid #00f2ff;
+}
+
+.save-button:hover,
+#cancel-button:hover {
+    opacity: 0.85;
+    background-color: #00f2ff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00f2ff;
+}
